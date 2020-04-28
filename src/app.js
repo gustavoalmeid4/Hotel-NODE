@@ -11,7 +11,7 @@ class App{
     this.app=express();
 
         
-    mongoose.connect('mongodb+srv://Almeida:aezakmialmeida123@cluster0-zmabg.mongodb.net/test?retryWrites=true&w=majority', 
+    mongoose.connect('mongodb+srv://xxxxx@cluster0-zmabg.mongodb.net/test?retryWrites=true&w=majority', 
     {
         useNewUrlParser: true,
         useUnfiedTopology: true,
