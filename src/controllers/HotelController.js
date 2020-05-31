@@ -1,11 +1,19 @@
 const hotel = require('../models/hotel')
 
 class HotelController {
-
+    
+    
+    
     create(req, res) {
-        const { body } = req;
+        
+        const nomeImagem = req.file.filename;
+        const arquivo = req.file;
+        return res.json({ok:true});
 
-        const newHotel = new hotel(body);
+        const{usuario_id}=req.headers;
+        const{hotel_id}=req.headers;
+
+        const newHotel = new hotel;
         newHotel.save(function (error) {
             if (error) {
                 res.json({ error })
@@ -15,6 +23,7 @@ class HotelController {
             }
         });
     }
+   
     list(req, res){
 
             hotel.find({}).exec(function(erro,result){
@@ -27,7 +36,7 @@ class HotelController {
                     
  
 
-    }
+    } 
 }
 
 module.exports = new HotelController;

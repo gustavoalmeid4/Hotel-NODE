@@ -6,7 +6,7 @@ class SessionController{
     
     
         const{email} = req.body;
-    //const usuario= 
+  
     return res.json({email:'email@teste.com.br'});
     
 

@@ -3,7 +3,7 @@ const {Schema ,model} = require('mongoose');
 const reservaSchema = new Schema({
 
   
-responsible :'string', contact:'string', hotel:'string', apType:'string', period:'string', 
+responsible :{type: Schema.Types.ObjectId , ref:'Usuario'}, contact:'string', hotel :{type: Schema.Types.ObjectId , ref:'hotel'}, apType:'string', period:'string', 
 qntGuests :'number',
 
 

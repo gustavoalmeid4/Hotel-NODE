@@ -2,7 +2,9 @@ const express = require('express')
 
 const mongoose = require('mongoose');
 
-const routes = require ('./routes')
+const routes = require ('./routes');
+
+const cors = require ('cors');
 
 class App{
 
@@ -10,8 +12,11 @@ class App{
 
     this.app=express();
 
-        
-    mongoose.connect('mongodb+srv://xxxxx@cluster0-zmabg.mongodb.net/test?retryWrites=true&w=majority', 
+    mongoose.set('useNewUrlParser', true);
+    mongoose.set('useFindAndModify', false);
+    mongoose.set('useCreateIndex', true);
+    mongoose.set('useUnifiedTopology', true);    
+    mongoose.connect('mongodb+srv://Almeida:aezakmialmeida123@cluster0-zmabg.mongodb.net/test?retryWrites=true&w=majority', 
     {
         useNewUrlParser: true,
         useUnfiedTopology: true,
@@ -26,14 +31,19 @@ class App{
 
 
 middlewares(){
-
+this.app.use{
+    '/imagens',
+    express.static(path.resolve(__dirname,'..','uploads'))
+};
 this.app.use(express.json());
+this.app.use(cors());
 
 }
 
 routes(){
 
 this.app.use(routes);
+
 
 }
 
